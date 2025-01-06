@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array</title>
+</head>
+<body>
+    <h2>Menggunakan Array</h2>
+    <p>Mendeklarasikan sebuah array tidak membuat elemen-elemennya tidak dapat diubah. Contoh:</p>
+    
+    <!-- Membuat inputan -->
+    <input type="text" id="arrayInput1" placeholder="Masukkan Kendaraan1: ">
+    <input type="text" id="arrayInput2" placeholder="Masukkan Kendaraan2: ">
+    <input type="text" id="arrayInput3" placeholder="Masukkan Kendaraan3: ">
+
+    <button onclick="addKendaraan()">Hasil</button>
+    <p id="output"></p>
+
+    <h3>Tambahkan Kendaraan lagi:</h3>
+    <input type="text" id="arrayInput4" placeholder="Tambah Kendaraan: ">
+    <button onclick="tambahKendaraan()">Tambah</button>
+    <p id="array"></p>
+
+    <script>
+        // Deklarasi array global
+        const Kendaraan = [];
+
+        // Fungsi untuk menambahkan data awal ke array
+        function addKendaraan() {
+            // Ambil nilai dari input
+            const kendaraan1 = document.getElementById("arrayInput1").value;
+            const kendaraan2 = document.getElementById("arrayInput2").value;
+            const kendaraan3 = document.getElementById("arrayInput3").value;
+
+            // Tambahkan ke array
+            if (kendaraan1) Kendaraan.push(kendaraan1);
+            if (kendaraan2) Kendaraan.push(kendaraan2);
+            if (kendaraan3) Kendaraan.push(kendaraan3);
+
+            // Kosongkan input
+            document.getElementById("arrayInput1").value = "";
+            document.getElementById("arrayInput2").value = "";
+            document.getElementById("arrayInput3").value = "";
+
+            // Tampilkan hasil
+            document.getElementById("output").innerText = `Kendaraan: ${Kendaraan.join(", ")}`;
+            console.log(Kendaraan);
+        }
+
+        // Fungsi untuk menambahkan kendaraan tambahan
+        function tambahKendaraan() {
+            const kendaraanBaru = document.getElementById("arrayInput4").value;
+
+            if (kendaraanBaru) {
+                Kendaraan.push(kendaraanBaru);
+                document.getElementById("arrayInput4").value = "";
+                document.getElementById("array").innerText = `Kendaraan: ${Kendaraan.join(", ")}`;
+                console.log(Kendaraan);
+            }
+        }
+    </script>
+</body>
+</html>
